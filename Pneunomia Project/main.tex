@@ -1,0 +1,114 @@
+\documentclass[sigconf]{acmart}
+
+\usepackage{subfig}
+\usepackage{pifont}
+\usepackage{multirow}
+\usepackage{colortbl}
+
+%% \BibTeX command to typeset BibTeX logo in the docs
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    \normalfont B\kern-0.5em{\scshape i\kern-0.25em b}\kern-0.8em\TeX}}}
+
+\settopmatter{printacmref=false} % Removes citation information below abstract
+\settopmatter{printfolios=true}
+\renewcommand\footnotetextcopyrightpermission[1]{} % removes footnote with conference information in first column
+\pagestyle{plain} % removes running headers
+
+%% These commands are for a PROCEEDINGS abstract or paper.
+\acmConference[Machine Learning]{}{P4 2020}{VU Amsterdam}
+\acmBooktitle{}
+\acmPrice{}
+\acmISBN{}
+
+
+\begin{document}
+\title{Final Report - Project Group 77}
+\subtitle{What are the Effects of Different Preprocessing Techniques on Imbalanced Data for Image Classification Using a Deep Learning Algorithm Regarding the Detection of Pneumonia?}
+
+%% authors
+\author{Pelinsu Çiftçioğlu}
+\affiliation{%
+  \institution{Vrije Universiteit}
+  \city{Amsterdam}
+  \country{The Netherlands}
+}
+
+\author{Lars Rass}
+\affiliation{%
+  \institution{Vrije Universiteit}
+  \city{Amsterdam}
+  \country{The Netherlands}
+}
+
+\author{Josef Dabrowski}
+\affiliation{%
+  \institution{Vrije Universiteit}
+  \city{Amsterdam}
+  \country{The Netherlands}
+}
+
+\author{Mark Limudjianto}
+\affiliation{%
+  \institution{Vrije Universiteit}
+  \city{Amsterdam}
+  \country{The Netherlands}
+}
+
+\author{Samuel Stroschein}
+\affiliation{%
+  \institution{Vrije Universiteit}
+  \city{Amsterdam}
+  \country{The Netherlands}
+}
+
+\renewcommand{\shortauthors}{Group 77: P. Çiftçioğlu, L. Rass, J. Dabrowski, M. Limudjianto, S. Stroschein}
+
+\begin{abstract}
+\input{abstract}
+\end{abstract}
+%%
+%% Keywords. The author(s) should pick words that accurately describe
+%% the work being presented. Separate the keywords with commas.
+\input{keywords}
+
+%%
+%% This command processes the author and affiliation and title
+%% information and builds the first part of the formatted document.
+\maketitle
+
+%% ML: That's just the parts we need to consider in the report: one chapter for each lecture. The order of chapters might not be in the order of lectures. But that's just for an overview.
+
+%% introduction
+\input{introduction}
+
+%% data exploration
+\input{data}
+
+%% CNN
+\input{cnn}
+
+%% baseline
+\input{baseline}
+
+%% undersampling
+\input{undersampling}
+
+%% oversampling
+\input{oversampling}
+
+%% augmentation
+\input{augmentation}
+
+%% conclusion
+\input{conclusion}
+
+%% acknowledgement
+\input{acknowledgement}
+
+%% The next two lines define the bibliography style to be used, and
+%% the bibliography file.
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{reference}
+
+\end{document}

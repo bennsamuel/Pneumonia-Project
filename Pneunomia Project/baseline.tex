@@ -1,0 +1,50 @@
+\section{Baseline}
+\subsection{Assessment Method}
+All results are assessed by the precision metric in combination with the recall metric. The higher both metrics, the better.  However, recall is given more weight. Precision returns a proportion of how many images were classified correctly, e.g. of all images identified as class X, how many actually have class X? Recall returns a proportion of how many images have been identified as relevant which are "actually" relevant, e.g. of all images classified as Y, how many were detected as class Y correctly? The recall metric is especially important for this particular classification task as it is used for medical diagnosis.\cite{powers2011evaluation} If the recall metric is low, then images that are classified as (having) "pneumonia" are not detected as (having) "pneumonia". This "false negative" would be a disaster in a real-life scenario. The patient is diagnosed as having no pneumonia although he or she has pneumonia. In other words, the pneumonia would remain undetected. The worst case scenario of low precision would be that patients are diagnosed with having pneumonia, although they don't have pneumonia. This would be a "false positive". In a real life scenario this would likely lead to a more in depth investigation which would revoke the former diagnosis as a "false-alarm" which eventually does not harm the patient.
+
+% As described in the baseline chapter, the goal is to achieve high precision in combination with a high recall score. The recall score is given more weight since the number of false negatives should be as low as possible. All methods will be assessed with these metrics on the validation set.
+
+
+
+The equations are defined as following:
+\begin{equation}
+Precision = \frac{TP}{TP +  FP}
+\end{equation}
+\begin{equation}
+Recall = \frac{TP}{TP +  FN}
+\end{equation}
+Where TP is defined as true positives, FP as false positive and FN as false negative.\\
+Suppose the data set contains 100 x-ray images in total. Of these, 40 images are classified as "normal", therefore negative, while 60 are classified as (having) "pneumonia", therefore positive.\\
+On the one hand, the CNN classifies 68 images as positive of which 57 classifications are correct (true positive) while 11 were identified positive although they were negative (false positive).\\ 
+On the other hand, the CNN classifies 32 images as negative of which 29 classifications are correct (true negative) while 3 were identified negative although they were positive (false negative).\\
+Therefore in this example the precision would be $\frac{57}{68}$ and the recall would be $\frac{57}{60}$.
+
+
+%This gives the following confusion matrix: \\
+\begin{table}[h]
+    \centering
+    \begin{tabular}{l|l|c|c|c}
+\multicolumn{2}{c}{}&\multicolumn{2}{c}{True diagnosis}&\\
+\cline{3-4}
+\multicolumn{2}{c|}{}&Positive&Negative&\multicolumn{1}{c}{Total}\\
+\cline{2-4}
+\multirow{2}{*}{Screening test}& Positive & \cellcolor{green}$57$ & \cellcolor{red}$11$ & $68$\\
+\cline{2-4}
+& Negative & \cellcolor{red}$3$ & \cellcolor{green}$29$ & $32$\\
+\cline{2-4}
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{Total} & \multicolumn{1}{c}{$60$} & \multicolumn{    1}{c}{$40$} & \multicolumn{1}{c}{$100$}\\
+\end{tabular}
+    \caption{Confusion Matrix}
+    \label{tab:my_label}
+\end{table}
+
+\subsection{Results}
+Using the developed CNN on the data set without any further pre-processing to deal with class imbalance yields the following results on the test set. The results will serve as the baseline for the solutions discussed in this paper: \\
+\begin{equation}
+Precision = 0.7087
+\end{equation}
+\begin{equation}
+Recall = 0.7019
+\end{equation}
+\\
+For comparisons of different methods in the upcoming chapters a "training baseline" is introduced. Training baseline refers to a baseline whose results are evaluated on the validation set instead of the test set. This ensures that the test set will not be used until the final evaluation and prevent multiple testing on the test set.

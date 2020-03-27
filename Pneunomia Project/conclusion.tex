@@ -1,0 +1,24 @@
+\section* {Conclusion}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{ |p{4.5cm}|c|c|  }
+ \hline
+ \multicolumn{3}{|c|}{Results} \\
+ \hline
+ Method & Precision & Recall\\
+ \hline
+ Baseline & 0.7019 & 0.7087\\
+ Undersampling & 0.6770 & 0.6651\\
+ Oversampling & 0.3720 & 0.3702\\
+ Augmentation vertical-flip(1) & 0.6981 & 0.6891\\
+ Augmentation rotation-range(10) & 0.6418 & 0.6346\\
+ Augmentation zoom-range(10) & 0.7325 & 0.7196\\
+ Augmentation height-shift(10) & 0.7047 & 0.6923\\
+ Augmentation width-shift(10) & 0.6765 & 0.6635\\
+ \hline
+\end{tabular}
+\end{table}
+
+The results are not meeting our expectations, regarding a distinct improvement of results due to dealing with class imbalance. No other method other than oversampling yielded in clear results from which a confident conclusion could be drawn. Oversampling likely lead to high overfitting which resulted in substantially lower scores in precision and recall which allow for the confident conclusion that oversampling leads to lower performance. The result of undersampling does not deviate substantially from the baseline. We suspect this is due to the fact that we made sure that the CNN does not overfit when trained with the initial, imbalanced, dataset. Since oversampling likely lead to overfitting, the first versions of our CNN did overfit on the initial, imbalanced, dataset as well for which we now suspect the class imbalance, undersampling maybe could have reduced overfitting by balancing the classes, if we did not specifically design our CNN to not overfit on the given, imbalanced, dataset. This opens the possibility for further research: "Would undersampling yield in different results if the CNN would initially overfit on the imbalanced dataset?". The results for the different data augmentation methods, also in combination with each other, were so close to the baseline that a conclusive implication is not possible. \\
+To inspire further research, in-depth augmentation methods, like generating new images with generative adversarial networks (GAN), might be another approach. GANs extent from simple interpolation of images to actually learning from given instances to generate new ones.
